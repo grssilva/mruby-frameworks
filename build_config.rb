@@ -5,7 +5,7 @@ IOS_FLAGS = %W(-Os -arch armv7 -arch arm64 -isysroot #{sdk_path 'iphoneos'})
 IOSSIM_FLAGS = %W(-Os -arch i386 -arch x86_64 -isysroot #{sdk_path 'iphonesimulator'})
 TVOS_FLAGS = %W(-Os -arch arm64 -isysroot #{sdk_path 'appletvos'})
 TVOSSIM_FLAGS = %W(-Os -arch x86_64 -isysroot #{sdk_path 'appletvsimulator'})
-
+MACOSX_FLAGS = %W(-Os -arch x86_64 -isysroot #{sdk_path 'macosx'} -target x86_64-apple-ios13.0-macabi)
 
 MRuby::Build.new do |conf|
   toolchain :clang
@@ -37,6 +37,20 @@ MRuby::CrossBuild.new('ios-simulator') do |conf|
   conf.linker do |linker|
     linker.command = CC
     linker.flags = IOSSIM_FLAGS
+  end
+end
+
+MRuby::CrossBuild.new('macosx') do |conf|
+  conf.gembox 'default'
+
+  conf.cc do |cc|
+    cc.command = CC
+    cc.flags = MACOSX_FLAGS
+  end
+
+  conf.linker do |linker|
+    linker.command = CC
+    linker.flags = MACOSX_FLAGS
   end
 end
 
