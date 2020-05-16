@@ -14,7 +14,7 @@ The prebuilt xcframework is located in `xcframework/`.
 4. On target settings -> `Frameworks, Libraries, and Embedded Content`, add `MRuby.xcframework`
 
 ## How to test in 5 min or less:
-1. Create an new iOs Objective-C project
+1. Create an new iOs Objective-C project and add the xcframework
 2. On `ViewController.m`, add:
 ```
 #include <mruby.h>
