@@ -2,16 +2,18 @@
 
 Based on [ruby2d/mruby-frameworks](https://github.com/ruby2d/mruby-frameworks)
 
-Run `rake` to cross compile and build the frameworks. To update the MRuby submodule, use `rake mruby_latest` to set to the latest release and `rake mruby_master` to set the master branch.
+Run `rake` to cross compile and build the xcframework.
+To update the MRuby submodule, use `rake mruby_latest` to set to the latest release and `rake mruby_master` to set the master branch.
 
-The prebuilt xcframework are located in `xcframework/`.
+The prebuilt xcframework is located in `xcframework/`.
 
 How to generate:
-1. run 'rake mruby_latest' on folder to update MRuby
-2. run rake to generate the xcframework
-3. in 'Build Settings' add '--deep' to 'Other Code Signing Flags'
-4. on the project 'Signing & Capabilities', check 'Disable Library Validation' on 'Hardened Runtime'
-5. add the xcframework to your xcode project
+1. run `rake mruby_latest` on folder to update MRuby
+2. run `rake` to generate the xcframework
+3. on `Build Settings`, on `Other Code Signing Flags`, add `--deep`
+4. on the project `Signing & Capabilities`, on `Hardened Runtime`, check `Disable Library Validation`
+5. copy the `MRuby.xcframework` to a folder in your project.
+6. add the `MRuby.xcframework`  to your xcode project on the `Frameworks, Libraries, and Embedded Content`.
 
 Easy way to test:
 Create an Objective-C project
@@ -30,4 +32,4 @@ mrb_load_string(mrb, code);
 
 mrb_close(mrb);
 ```
-And you should see 'mruby is awesome!' 5 times in the Output window.
+Run and you should see 'mruby is awesome!' 5 times in the Output window.
