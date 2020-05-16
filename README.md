@@ -7,20 +7,20 @@ To update the MRuby submodule, use `rake mruby_latest` to set to the latest rele
 
 The prebuilt xcframework is located in `xcframework/`.
 
-## How to add to your project:
-1. on `Build Settings`, on `Other Code Signing Flags`, add `--deep`
-2. on the project `Signing & Capabilities`, on `Hardened Runtime`, check `Disable Library Validation`
-3. copy the `MRuby.xcframework` to a folder in your project (i recommend a folder named `Frameworks` where your xcproject is).
-4. add the `MRuby.xcframework`  to your xcode project on the `Frameworks, Libraries, and Embedded Content`.
+## How to add the XCFramework to your project:
+1. On project settings ->`Build Settings` -> `Other Code Signing Flags`, add `--deep`
+2. On project settings -> `Signing & Capabilities` -> `Hardened Runtime`, check the `Disable Library Validation` option
+3. Copy `MRuby.xcframework` to a folder in your project (usually a folder named `Frameworks` where your xcodeproj is)
+4. On target settings -> `Frameworks, Libraries, and Embedded Content`, add `MRuby.xcframework`
 
-## Easy way to test:
-1. Create an Objective-C project
-2. In the class you want to test (ex. `ViewController.m`), add the includes:
+## How to test in 5 min or less:
+1. Create an new iOs Objective-C project
+2. On `ViewController.m`, add:
 ```
 #include <mruby.h>
 #include <mruby/compile.h>
 ```
-3. Where you want the code to run (ex. `- (void)viewDidLoad):
+3. On `- (void)viewDidLoad)` of that class, add:
 ```
 mrb_state *mrb = mrb_open();
 char code[] = "5.times { puts 'mruby is awesome!' }";
