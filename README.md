@@ -1,21 +1,17 @@
-# MRuby iOS, tvOS $ macOs Catalyst xcframework
+# MRuby iOS, tvOS and macOs Catalyst xcframework
 
-Based on 'ruby2d/mruby-frameworks'
+Based on [ruby2d/mruby-frameworks](https://github.com/ruby2d/mruby-frameworks)
 
 Run `rake` to cross compile and build the frameworks. To update the MRuby submodule, use `rake mruby_latest` to set to the latest release and `rake mruby_master` to set the master branch.
 
 The prebuilt xcframework are located in `xcframework/`.
 
-⚠️ Catalyst requires running iOS 13.0 or later
-⚠️ When using these frameworks in an Xcode project, make sure to add `"$(SRCROOT)/MRuby.framework/Headers"` to the "Header Search Paths" in the build settings.
-
 How to generate:
 1. run 'rake mruby_latest' on folder to update MRuby
 2. run rake to generate the xcframework
-3. on the project Build Settings, set Enable Bitcode to 'NO'
-4. in 'Build Settings' add '--deep' to 'Other Code Signing Flags'
-5. on the project 'Signing & Capabilities', check 'Disable Library Validation' on 'Hardened Runtime'
-3. add the xcframework to your xcode project
+3. in 'Build Settings' add '--deep' to 'Other Code Signing Flags'
+4. on the project 'Signing & Capabilities', check 'Disable Library Validation' on 'Hardened Runtime'
+5. add the xcframework to your xcode project
 
 Easy way to test:
 Create an Objective-C project

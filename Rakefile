@@ -30,7 +30,6 @@ task :mruby_xcframework => :build_mruby do
   '-library mruby/build/tvos-simulator/lib/libmruby.a '\
   '-headers mruby/include '\
   '-output xcframework/MRuby.xcframework'
-
 end
 
 desc 'Set MRuby submodule to latest release'
